@@ -31,3 +31,4 @@ public class ProductInfo extends CommonEntity{
     @OneToMany(mappedBy = "product_info")
     private List<Product> product = new ArrayList<>();
 }
+

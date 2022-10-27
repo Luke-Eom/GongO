@@ -24,3 +24,4 @@ public class Category extends CommonEntity{
     private String type;
 
 }
+
