@@ -14,7 +14,7 @@ import lombok.Setter;
 @Builder
 
 @Entity
-public class Category {
+public class Category extends CommonEntity{
     
     @Id
     private int id; 

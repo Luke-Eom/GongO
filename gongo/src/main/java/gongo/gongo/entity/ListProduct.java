@@ -1,6 +1,7 @@
 package gongo.gongo.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -16,18 +17,17 @@ import lombok.Setter;
 @Getter
 @Setter
 
-@Entity
-public class ListProduct {
+@Entity(name = "list_product")
+public class ListProduct extends CommonEntity{
     
     @Id
     @GeneratedValue
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "Wish_List_ID")
+    @ManyToOne(fetch = FetchType.LAZY)
     private WishList wishList;
 
     @ManyToOne
-    @JoinColumn(name = "PRODUCT_ID")
+    @JoinColumn(name = "product_id")
     private Product product;
 }

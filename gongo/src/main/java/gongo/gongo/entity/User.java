@@ -1,19 +1,12 @@
 package gongo.gongo.entity;
-import java.util.Set;
- 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
- 
+
 import org.hibernate.annotations.DynamicUpdate;
- 
+
 import lombok.AccessLevel;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
  
@@ -22,10 +15,10 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "tb_user")
 @DynamicUpdate
-public class User {
+public class User extends CommonEntity {
  
 	@Id
-	@Column(name = "id")
+	@Column(name = "id", unique = true)
 	private String id;
  
 	@Column(name = "password")
@@ -34,15 +27,15 @@ public class User {
 	@Column(name = "name")
 	private String name;
  
-	@ManyToMany(cascade = { CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
-	@JoinTable(name = "tb_user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
-	private Set<Role> roles;
+	// @ManyToMany(cascade = { CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
+	// @JoinTable(name = "tb_user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+	// private Set<Role> roles;
  
-	@Builder
-	public User(String id, String password, String name, Set<Role> roles) {
-		this.id = id;
-		this.password = password;
-		this.name = name;
-		this.roles = roles;
-	}
+	// @Builder
+	// public User(String id, String password, String name, Set<Role> roles) {
+	// 	this.id = id;
+	// 	this.password = password;
+	// 	this.name = name;
+	// 	this.roles = roles;
+	// }
 }

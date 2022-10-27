@@ -11,8 +11,8 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-@Entity
-public class ProductInfo {
+@Entity(name = "product_info")
+public class ProductInfo extends CommonEntity{
     
     @Id
     private String name;
@@ -20,7 +20,6 @@ public class ProductInfo {
     @ManyToOne
     private Category category;
     
-    @ManyToOne
-    private Brand brand;
+    private String brand;
 
 }
