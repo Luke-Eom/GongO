@@ -23,3 +23,4 @@ public class ProductInfo extends CommonEntity{
     private String brand;
 
 }
+
