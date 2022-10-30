@@ -20,7 +20,7 @@ public class ProductServiceImpl implements ProductService {
         
         for(Product i : all) {
             if(i.getProductInfo().getCategory().getName()==cat) {
-                allDTO.add(ProductDTO.builder().)
+                //allDTO.add(ProductDTO.builder().)
             }
         }
 
