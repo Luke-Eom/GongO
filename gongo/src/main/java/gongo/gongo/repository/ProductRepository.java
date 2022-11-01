@@ -12,13 +12,13 @@ import gongo.gongo.entity.Product;
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Integer>{
    
-    @Query("select p from Product where p.brand like %:brand%")
+    @Query("select p from Product as p inner join product_info as pi where pi.brand like '%:brand%'")
     ArrayList<Product> findProductByBrand(String brand);
     
-    @Query("select p from Product where p.cat like %:cat%")
+    @Query("select p from Product as p inner join product_info as pi where pi.category like '%:cat%'")
     ArrayList<Product> findProductByCat(String cat);
     
-    @Query("select p from Product as p inner join ProductInfo as pi on p.name = pi.name where upper(p.name) like upper(%:name%)")
+    @Query("select p from Product as p inner join product_info as pi on p.name = pi.name where upper(p.name) like upper('%:name%')")
     ArrayList<Product> findProductByName(@Param("name") String name);
     
 }
