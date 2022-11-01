@@ -11,27 +11,34 @@ import lombok.Getter;
 
 public class ProductDTO {
     
-    private int productId;
+    private Long id;
 
-    private String productName;
+    private String name;
 
-    private int price;
+    private String price;
 
-    private String img;
+    private String imageUrl;
 
     private String link;
+
+    public ProductDTO(String name, String price, String imageUrl, String link) {
+        this.name = name;
+        this.price = price;
+        this.imageUrl = imageUrl;
+        this.link = link;
+    }
 
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
         builder.append(" 고유번호 : ");
-		builder.append(productId);
+		builder.append(id);
         builder.append(" 이름 : ");
-		builder.append(productName);
+		builder.append(name);
         builder.append(" 가격 : ");
 		builder.append(price);
         builder.append(" 이미지 : ");
-		builder.append(img);
+		builder.append(imageUrl);
         builder.append(" 링크 : ");
 		builder.append(link);
         

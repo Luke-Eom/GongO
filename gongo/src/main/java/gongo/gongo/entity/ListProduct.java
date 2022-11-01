@@ -22,7 +22,7 @@ public class ListProduct extends CommonEntity{
     
     @Id
     @GeneratedValue
-    private Long id;
+    private int id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private WishList wishList;

@@ -1,6 +1,7 @@
 package gongo.gongo.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -18,16 +19,16 @@ import lombok.Setter;
 public class Product extends CommonEntity{
     
     @Id
-    private int id;
+    private Long id;
 
-    @ManyToOne 
+    @ManyToOne(targetEntity = ProductInfo.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "product_info_name")
-    private ProductInfo productInfo;
+    private ProductInfo name;
     
     private String price;
 
     private String imageUrl;
     
     private String link;
-    
+
 }
