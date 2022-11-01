@@ -33,7 +33,7 @@ public class ProductServiceImpl implements ProductService{
         ArrayList <ProductDTO> allDTO = new ArrayList <ProductDTO>();
         
         for (Product i : all) {
-                allDTO.add(ProductDTO.builder().id(i.getId()).productInfo(i.getProductInfo()).price(i.getPrice()).imageUrl(i.getImageUrl()).link(i.getLink()).build());
+                allDTO.add(ProductDTO.builder().id(i.getId()).name(i.getName().getName()).price(i.getPrice()).imageUrl(i.getImageUrl()).link(i.getLink()).build());
          }
         
         return allDTO;
@@ -45,7 +45,7 @@ public class ProductServiceImpl implements ProductService{
         ArrayList<ProductDTO> allDTO = new ArrayList<ProductDTO>();
 
         for (Product i : all) {
-            allDTO.add(ProductDTO.builder().id(i.getId()).productInfo(i.getProductInfo()).price(i.getPrice()).imageUrl(i.getImageUrl()).link(i.getLink()).build());
+            allDTO.add(ProductDTO.builder().id(i.getId()).name(i.getName().getName()).price(i.getPrice()).imageUrl(i.getImageUrl()).link(i.getLink()).build());
         }
         return allDTO;
     }
@@ -55,7 +55,7 @@ public class ProductServiceImpl implements ProductService{
         ArrayList <ProductDTO> allDTO = new ArrayList <ProductDTO>();
         
         for (Product i : all) {
-                allDTO.add(ProductDTO.builder().id(i.getId()).productInfo(i.getProductInfo()).price(i.getPrice()).imageUrl(i.getImageUrl()).link(i.getLink()).build());
+                allDTO.add(ProductDTO.builder().id(i.getId()).name(i.getName().getName()).price(i.getPrice()).imageUrl(i.getImageUrl()).link(i.getLink()).build());
         }
         return allDTO;
         
