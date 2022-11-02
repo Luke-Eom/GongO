@@ -2,15 +2,17 @@ package gongo.gongo.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
-import lombok.Setter;
+
 
 @AllArgsConstructor
 @Getter
-@Setter
+@Builder
 @Entity(name = "product_info")
 public class ProductInfo extends CommonEntity{
     
@@ -18,6 +20,7 @@ public class ProductInfo extends CommonEntity{
     private String name;
 
     @ManyToOne
+    @JoinColumn(name = "category_name")
     private Category category;
     
     private String brand;

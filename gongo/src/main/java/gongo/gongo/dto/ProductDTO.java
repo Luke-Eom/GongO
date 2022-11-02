@@ -1,7 +1,5 @@
 package gongo.gongo.dto;
 
-import gongo.gongo.entity.Product;
-import gongo.gongo.entity.ProductInfo;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -9,18 +7,26 @@ import lombok.Getter;
 @AllArgsConstructor
 @Getter
 @Builder
+
+
 public class ProductDTO {
     
-    private int id;
-    
-    private ProductInfo name;
+    private Long id;
+
+    private String name;
 
     private String price;
 
     private String imageUrl;
-    
+
     private String link;
-    
+
+    public ProductDTO(String name, String price, String imageUrl, String link) {
+        this.name = name;
+        this.price = price;
+        this.imageUrl = imageUrl;
+        this.link = link;
+    }
 
     @Override
     public String toString() {
@@ -37,10 +43,6 @@ public class ProductDTO {
 		builder.append(link);
         
         return builder.toString();
-    }
-
-    public Product toEntity() {
-        return Product.builder().id(id).productInfo(name).price(price).imageUrl(imageUrl).link(link)build();
     }
 
 }

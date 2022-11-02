@@ -14,6 +14,8 @@ public class CategoryDTO {
 
     private String name;
 
+    private String type;
+
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
@@ -21,6 +23,8 @@ public class CategoryDTO {
 		builder.append(id);
         builder.append(" 부품분류 : ");
 		builder.append(name);
+        builder.append(" 타입 : ");
+		builder.append(type);
         
         return builder.toString();
     }
