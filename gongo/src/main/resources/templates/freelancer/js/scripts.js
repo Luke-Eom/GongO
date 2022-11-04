@@ -82,5 +82,22 @@ function openCatTab(evt, productCategory) {
   evt.currentTarget.className += " active";
 }
 
-document.getElementById("defaultOpen").click();  
+document.getElementById("defaultOpen").click(); 
+
+function recommendToWishlist() {
+  // 테이블에 있는 제품 데이터(객체)
+  // for (i = 0; i< recProduct.length; i++) {
+  // recProduct = document.getElementByClassName("recProduct");
+  // document.getElementByClassName("wishList") = recProduct;
   
+}
+ 
+// 위시리스트에 추가 삭제 버튼
+function addWishlist() {
+  
+}
+
+function removeWishlist() {
+
+}
+
