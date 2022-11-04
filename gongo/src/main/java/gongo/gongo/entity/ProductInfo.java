@@ -17,6 +17,8 @@ import lombok.Getter;
 public class ProductInfo extends CommonEntity{
     
     @Id
+    private Long id;
+
     private String name;
 
     @ManyToOne
