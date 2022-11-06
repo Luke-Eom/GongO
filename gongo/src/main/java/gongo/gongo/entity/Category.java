@@ -1,8 +1,6 @@
 package gongo.gongo.entity;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import lombok.AllArgsConstructor;
@@ -19,9 +17,10 @@ import lombok.Setter;
 public class Category extends CommonEntity{
     
     @Id
+    private int id;
+     
     private String name;
     
-    private int id; 
     
     private String type;
 

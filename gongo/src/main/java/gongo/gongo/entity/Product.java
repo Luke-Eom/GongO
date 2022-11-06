@@ -2,11 +2,8 @@ package gongo.gongo.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-<<<<<<< Updated upstream
-=======
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
->>>>>>> Stashed changes
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -24,10 +21,7 @@ import lombok.Setter;
 public class Product extends CommonEntity{
     
     @Id
-<<<<<<< Updated upstream
-=======
     @GeneratedValue(strategy = GenerationType.IDENTITY)
->>>>>>> Stashed changes
     private Long id;
 
     @ManyToOne(targetEntity = ProductInfo.class, fetch = FetchType.LAZY)
