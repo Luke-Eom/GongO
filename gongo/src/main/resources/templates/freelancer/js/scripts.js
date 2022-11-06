@@ -66,4 +66,43 @@
     });
   
   })(jQuery); // End of use strict
+
+
+function openCatTab(evt, productCategory) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(productCategory).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+document.getElementById("defaultOpen").click(); 
+
+// tab 링크 안의 제품 리스트
+function cpuList () {
   
+}
+
+function recommendToWishlist() {
+  // 테이블에 있는 제품 데이터(객체)
+  // for (i = 0; i< recProduct.length; i++) {
+  // recProduct = document.getElementByClassName("recProduct");
+  // document.getElementByClassName("wishList") = recProduct;
+  
+}
+ 
+// 위시리스트에 추가 삭제 버튼
+function addWishlist() {
+  
+}
+
+function removeWishlist() {
+
+}
+
