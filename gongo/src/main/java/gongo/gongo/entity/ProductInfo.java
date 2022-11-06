@@ -27,5 +27,7 @@ public class ProductInfo extends CommonEntity{
     
     private String brand;
 
+    private String detail;
+
 }
 

@@ -84,6 +84,11 @@ function openCatTab(evt, productCategory) {
 
 document.getElementById("defaultOpen").click(); 
 
+// tab 링크 안의 제품 리스트
+function cpuList () {
+  
+}
+
 function recommendToWishlist() {
   // 테이블에 있는 제품 데이터(객체)
   // for (i = 0; i< recProduct.length; i++) {
