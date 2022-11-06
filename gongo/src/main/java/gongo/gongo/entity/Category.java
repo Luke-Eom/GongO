@@ -17,8 +17,6 @@ import lombok.Setter;
 public class Category extends CommonEntity{
     
     @Id
-    private int id; 
-
     private String name;
 
     private String type;
