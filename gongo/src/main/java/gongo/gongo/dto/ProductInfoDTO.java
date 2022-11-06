@@ -16,6 +16,11 @@ public class ProductInfoDTO {
         
     private String brand;
 
+<<<<<<< Updated upstream
+=======
+    private String detail;
+
+>>>>>>> Stashed changes
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
@@ -25,6 +30,11 @@ public class ProductInfoDTO {
 		builder.append(category);
         builder.append(" 브랜드 : ");
 		builder.append(brand);
+<<<<<<< Updated upstream
+=======
+        builder.append(" 상세 정보 : ");
+		builder.append(detail);
+>>>>>>> Stashed changes
         
         return builder.toString();
     }

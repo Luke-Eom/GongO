@@ -1,3 +1,4 @@
+package gongo.gongo.sercurity;
 // package gongo.gongo.config;
 
 // import org.springframework.beans.factory.annotation.Autowired;
