@@ -1,5 +1,7 @@
 package gongo.gongo.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,7 +21,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @Builder
 @Entity(name = "product_info")
-public class ProductInfo extends CommonEntity{
+public class ProductInfo extends CommonEntity implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
