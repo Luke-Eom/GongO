@@ -53,12 +53,13 @@
                 <div class="text-center">
                     <h2 class="page-section-heading text-secondary mb-0 d-inline-block">부품 검색</h2>
                 </div>
-                <!-- Icon Divider-->
-                    
+        
+                <div>    
                     <input/>
-                   
-                <!-- Portfolio Grid Items-->
-                <div class="row justify-content-center">
+                    <button type="button" onclick="">CPU</button>
+                </div>
+               
+                
                    
 
 

@@ -3,11 +3,14 @@ package gongo.gongo.dto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
 @AllArgsConstructor
+@RequiredArgsConstructor
 @Getter
+@Setter
 @Builder
-
 
 public class ProductDTO {
     
@@ -21,6 +24,7 @@ public class ProductDTO {
 
     private String link;
 
+    
     public ProductDTO(String name, String price, String imageUrl, String link) {
         this.name = name;
         this.price = price;

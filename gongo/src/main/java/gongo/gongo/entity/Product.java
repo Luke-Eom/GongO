@@ -11,12 +11,16 @@ import javax.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
 @Builder
+@ToString
 @Entity
 public class Product extends CommonEntity{
     
@@ -25,7 +29,7 @@ public class Product extends CommonEntity{
     private Long id;
 
     @ManyToOne(targetEntity = ProductInfo.class, fetch = FetchType.LAZY)
-    @JoinColumn(name = "product_info_name")
+    @JoinColumn(name = "product_info_name", referencedColumnName = "name")
     private ProductInfo name;
     
     private String price;

@@ -13,18 +13,16 @@ import gongo.gongo.repository.ProductRepository;
 public class ProductServiceImpl implements ProductService{
 
     @Autowired
-    ProductRepository productRepo;
-
+    private ProductRepository productRepo;
+   
 
 
     public ArrayList <ProductDTO> getProductList() throws Exception {
         ArrayList <Product> all = (ArrayList <Product>) productRepo.findAll();
         ArrayList <ProductDTO> allDTO = new ArrayList <ProductDTO>();
-        
         for (Product i : all) {
             allDTO.add(ProductDTO.builder().id(i.getId()).name(i.getName().getName()).price(i.getPrice()).imageUrl(i.getImageUrl()).link(i.getLink()).build());
         }
-        
         return allDTO;
     }
 
@@ -55,8 +53,8 @@ public class ProductServiceImpl implements ProductService{
         ArrayList <ProductDTO> allDTO = new ArrayList <ProductDTO>();
         
         for (Product i : all) {
-                allDTO.add(ProductDTO.builder().id(i.getId()).name(i.getName().getName()).price(i.getPrice()).imageUrl(i.getImageUrl()).link(i.getLink()).build());
-        }
+            allDTO.add(ProductDTO.builder().id(i.getId()).name(i.getName().getName()).price(i.getPrice()).imageUrl(i.getImageUrl()).link(i.getLink()).build());
+        }    
         return allDTO;
         
     }

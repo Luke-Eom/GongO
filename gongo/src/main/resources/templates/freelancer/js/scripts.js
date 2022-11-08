@@ -82,7 +82,7 @@ function openCatTab(evt, productCategory) {
   evt.currentTarget.className += " active";
 }
 
-document.getElementById("defaultOpen").click(); 
+document.getElementById("defaultOpen").click();   
 
 // tab 링크 안의 제품 리스트
 function cpuList () {
@@ -106,3 +106,89 @@ function removeWishlist() {
 
 }
 
+function list(cat) {
+  const xhttp = new XMLHttpRequest();
+			xhttp.onload = function() {
+				
+				let data = this.responseText;
+				data = JSON.parse(data);
+				
+				let tableElement =`
+				<table border="1">
+				<tr><th>이미지</th><th>제품명</th><th>가격</th></tr>`;
+				
+				for (let i in data){
+					tableElement = tableElement + `<tr>
+				 		<td>${data[i].imageUrl}</a></td>
+				 		<td>${data[i].name}</td>
+				 		<td>${data[i].price}</td>
+				    </tr>`;
+				}
+				tableElement = tableElement + `</table>`;
+				document.getElementById(cat).innerHTML = tableElement;
+			};
+			xhttp.open( "GET", "search/categoryAll?cat=" + cat);
+			xhttp.send();
+
+}
+
+async function post(host, path, body, headers = {}) {
+  const url = `https://${host}/${path}`;
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      ...headers,
+    },
+    body: JSON.stringify(body),
+  };
+  const res = await fetch(url, options);
+  const data = await res.json();
+  if (res.ok) {
+    return data;
+  } else {
+    throw Error(data);
+  }
+}
+ 
+function fetchCat(cat) {
+  return fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
+    .then((response) => response.json())
+    .then((post) => post.userId)
+    .then((userId) => {
+      return fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
+        .then((response) => response.json())
+        .then((user) => user.name);
+    });
+}
+
+//fetchAuthorName(1).then((name) => console.log("name:", name));
+
+function allProduct(){
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+    let data = this.responseText;
+    data = JSON.parse(data);
+    
+    let tableElement =`
+      <table border="1">
+      <tr>   
+        <th>이미지</th>
+        <th>이름</th>
+        <th>가격 id</th>
+      </tr>`;
+    
+    for (let i in data){
+      tableElement = tableElement + `<tr>
+         <td>${data[i].imageUrl}</td>
+         <td>${data[i].name}</td>
+         <td>${data[i].price}</td>
+        </tr>`;
+    }
+    
+    tableElement = tableElement + `</table>`;
+    document.getElementById("all").innerHTML = tableElement;
+  };
+  xhttp.open( "GET", "search/productAll");
+  xhttp.send();
+}

@@ -5,14 +5,15 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import gongo.gongo.dto.ProductDTO;
 import gongo.gongo.service.ProductService;
 
 @RestController
-@RequestMapping("rest")
-public class ProductRestController {
+@RequestMapping("search")
+public class ListRestController {
     
     @Autowired
     private ProductService productService;
