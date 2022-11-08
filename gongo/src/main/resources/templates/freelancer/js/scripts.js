@@ -175,7 +175,7 @@ function allProduct(){
       <tr>   
         <th>이미지</th>
         <th>이름</th>
-        <th>가격 id</th>
+        <th>가격 </th>
       </tr>`;
     
     for (let i in data){
@@ -189,6 +189,6 @@ function allProduct(){
     tableElement = tableElement + `</table>`;
     document.getElementById("all").innerHTML = tableElement;
   };
-  xhttp.open( "GET", "search/productAll");
+  xhttp.open( "GET", "search/all/1/10");
   xhttp.send();
 }

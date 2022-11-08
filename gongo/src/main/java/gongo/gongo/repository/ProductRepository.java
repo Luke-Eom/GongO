@@ -12,7 +12,7 @@ import gongo.gongo.entity.Product;
 
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Integer>{
-   
+
     @Query("select p from Product as p inner join product_info as pi where pi.brand like '%:brand%'")
     ArrayList<Product> findProductByBrand(String brand);
     
