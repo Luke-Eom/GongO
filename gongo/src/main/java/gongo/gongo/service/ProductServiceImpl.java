@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import gongo.gongo.dto.ProductDTO;
 import gongo.gongo.entity.Product;
@@ -21,12 +22,14 @@ public class ProductServiceImpl implements ProductService{
     @Autowired
     private final ProductRepository productRepo;
    
-    public ArrayList<ProductDTO> getProductList(int page, int size) throws Exception {
-        
-        Page <Product> all = productRepo.findAll(PageRequest.of(page, size));
-        ArrayList <ProductDTO> allDTO = new ArrayList <ProductDTO>();
+    public ArrayList<ProductDTO> getProductList(Model model, int page, int size) throws Exception {
 
-        for (Product i : all) {
+        Page <Product> allProducts = productRepo.findAll(PageRequest.of(page, size));
+        
+        ArrayList <ProductDTO> allDTO = new ArrayList <ProductDTO>();
+        
+
+        for (Product i : allProducts) {
             allDTO.add(ProductDTO.builder().id(i.getId()).name(i.getName().getName()).price(i.getPrice()).imageUrl(i.getImageUrl()).link(i.getLink()).build());
         }
         return allDTO;

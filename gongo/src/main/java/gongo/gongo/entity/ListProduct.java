@@ -28,6 +28,8 @@ public class ListProduct extends CommonEntity{
     private WishList wishList;
 
     @ManyToOne
-    @JoinColumn(name = "product_id")
+    @JoinColumn(name = "product_id") //
     private Product product;
+
+
 }

@@ -4,7 +4,8 @@ public class ListProductDTO {
 
     private int id;
     
-    private WishListDTO wishList;
+    //@Join
+    private WishListDTO wishListId;
 
     private ProductDTO product;
 
@@ -14,10 +15,12 @@ public class ListProductDTO {
         builder.append(" id : ");
 		builder.append(id);
         builder.append(" wishList: ");
-		builder.append(wishList);
+		builder.append(wishListId);
         builder.append(" product : ");
 		builder.append(product);
         
         return builder.toString();
     }
+
+    CRUD
 }

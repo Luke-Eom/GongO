@@ -24,5 +24,5 @@ public class WishList extends CommonEntity{
 
     @OneToMany(mappedBy = "wishList",cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<ListProduct> wishList = new HashSet<>();
-
+    
 }

@@ -12,4 +12,10 @@ public class BeanConfiguration {
         return new ModelMapper();
     }
 
+    // Page Config
+    // @Bean
+    // public PageableArgumentResolverCustomizer customize() {
+        
+    //     return p -> p.setOneIndexedParameter(true);
+    // }
 }

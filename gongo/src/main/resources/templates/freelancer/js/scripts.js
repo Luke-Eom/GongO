@@ -115,12 +115,12 @@ function catList(cat) {
 				
 				let tableElement =`
 				<table border="1">
-				<tr><th>activist_id</th><th>name</th><th>major</th></tr>`;
+				<tr><th>제품명</th><th>제조사</th><th>가격</th></tr>`;
 				
 				for (let i in data){
 					tableElement = tableElement + `<tr>
-				 		<td>${data[i].imageUrl}</a></td>
-				 		<td>${data[i].name}</td>
+				 		<td>${data[i].name}</a></td>
+				 		<td>${data[i].brand}</td>
 				 		<td>${data[i].price}</td>
 				    </tr>`;
 				}
@@ -151,44 +151,93 @@ async function post(host, path, body, headers = {}) {
   }
 }
  
-function fetchCat(cat) {
-  return fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
-    .then((response) => response.json())
-    .then((post) => post.userId)
-    .then((userId) => {
-      return fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
-        .then((response) => response.json())
-        .then((user) => user.name);
-    });
-}
+// function fetchCat(cat) {
+//   return fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
+//     .then((response) => response.json())
+//     .then((post) => post.userId)
+//     .then((userId) => {
+//       return fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
+//         .then((response) => response.json())
+//         .then((user) => user.name);
+//     });
+// }
 
 //fetchAuthorName(1).then((name) => console.log("name:", name));
 
+// Paging
+
 function allProduct(){
+
   const xhttp = new XMLHttpRequest();
   xhttp.onload = function() {
     let data = this.responseText;
     data = JSON.parse(data);
     
     let tableElement =`
+    <div>
       <table border="1">
       <tr>   
-        <th>이미지</th>
-        <th>이름</th>
-        <th>가격 </th>
+        <th>제품명</th>
+        <th>제조사</th>
+        <th>가격</th>
       </tr>`;
     
     for (let i in data){
       tableElement = tableElement + `<tr>
-         <td>${data[i].imageUrl}</td>
          <td>${data[i].name}</td>
+         <td>${data[i].category}</td>
          <td>${data[i].price}</td>
         </tr>`;
     }
     
-    tableElement = tableElement + `</table>`;
+    tableElement = tableElement + `</table></div>`;
+
     document.getElementById("all").innerHTML = tableElement;
   };
+  page = document.getElementsByClassName("page-item active").innerHTML;
+  console.log(page);
   xhttp.open( "GET", "search/all/1/10");
   xhttp.send();
 }
+
+//table jquery
+// $(document).ready(function () {
+
+//   $('.nBtn, .table .eBtn').on('click', function (event) {
+//       event.preventDefault();
+//       var href = $(this).attr('href');
+//       var text = $(this).text();
+
+//       if (text == 'Edit') {
+
+
+//           $.get(href, function (product, status) {
+//               $('.myForm #id').val(product.id);
+//               $('.myForm #name').val(product.name);
+//               $('.myForm #capital').val(product.capital);
+
+
+//           });
+//           $('.myForm #exampleModal').modal();
+
+
+//       } else {
+//           $('.myForm #id').val('');
+//           $('.myForm #name').val('');
+//           $('.myForm #capital').val('');
+
+//           $('.myForm #exampleModal').modal();
+//       }
+
+//   });
+
+//   $('.table .dBtn').on('click', function (event) {
+//       event.preventDefault();
+//       var href = $(this).attr('href');
+//       $('#deleteModal #delHref').attr('href', href);
+//       $('#deleteModal').modal();
+
+
+//   });
+
+// });

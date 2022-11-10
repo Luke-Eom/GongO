@@ -2,10 +2,12 @@ package gongo.gongo.service;
 
 import java.util.ArrayList;
 
+import org.springframework.ui.Model;
+
 import gongo.gongo.dto.ProductDTO;
 
 public interface ProductService {
-    ArrayList<ProductDTO> getProductList(int page, int size) throws Exception;
+    ArrayList<ProductDTO> getProductList(Model model, int page, int size) throws Exception;
     
     ArrayList<ProductDTO> getProductByBrand(String brand) throws Exception;
     
