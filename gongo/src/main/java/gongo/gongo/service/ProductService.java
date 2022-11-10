@@ -1,17 +1,13 @@
 package gongo.gongo.service;
 
-import java.util.ArrayList;
-
-import org.springframework.ui.Model;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import gongo.gongo.dto.ProductDTO;
+import gongo.gongo.dto.ProductSearchDTO;
 
 public interface ProductService {
-    ArrayList<ProductDTO> getProductList(Model model, int page, int size) throws Exception;
     
-    ArrayList<ProductDTO> getProductByBrand(String brand) throws Exception;
+    Page<ProductDTO> getAllProduct(ProductSearchDTO psd, Pageable pageable) throws Exception;   
     
-    ArrayList<ProductDTO> getProductByCat(String cat) throws Exception;
-
-    ArrayList<ProductDTO> getProductByName(String name) throws Exception;
 }

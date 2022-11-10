@@ -1,27 +1,24 @@
 package gongo.gongo.dto;
 
-import java.util.HashSet;
-import java.util.Set;
+import lombok.Getter;
+import lombok.Setter;
 
-public class WishListDTO {
-    private int id;
+@Getter
+@Setter
+public class WishlistDTO {
     
-    private UserDTO name;
+    private Long listProductId;
+
     
-    private Set<ListProductDTO> wishList = new HashSet<>();
-
-
-    @Override
-    public String toString() {
-        StringBuilder builder = new StringBuilder();
-        builder.append(" id : ");
-		builder.append(id);
-        builder.append(" name: ");
-		builder.append(name);
-        builder.append(" wishList : ");
-		builder.append(wishList);
+    private String productName;
+    
+    private String price;
+    
+      public WishlistDTO(Long listProductId, String productName, String price){
         
-        return builder.toString();
+        this.listProductId = listProductId;
+        this.productName = productName;
+        this.price = price;
     }
 
 }

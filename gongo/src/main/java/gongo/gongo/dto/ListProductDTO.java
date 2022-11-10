@@ -1,26 +1,25 @@
 package gongo.gongo.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class ListProductDTO {
 
     private int id;
     
-    //@Join
-    private WishListDTO wishListId;
-
-    private ProductDTO product;
-
+    //
+    private int count;
+    
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
         builder.append(" id : ");
 		builder.append(id);
-        builder.append(" wishList: ");
-		builder.append(wishListId);
-        builder.append(" product : ");
-		builder.append(product);
-        
+        builder.append(" 위시리스트 카운트 : ");
+		builder.append(count);
         return builder.toString();
     }
 
-    CRUD
 }

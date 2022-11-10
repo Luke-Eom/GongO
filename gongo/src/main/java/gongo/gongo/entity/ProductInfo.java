@@ -7,8 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -30,13 +28,10 @@ public class ProductInfo extends CommonEntity implements Serializable{
     @Column(name="name")
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "category_name")
-    private Category category;
-    
-    private String brand;
+    private String category;
+
+    private String Link;
 
     private String detail;
-
 }
 

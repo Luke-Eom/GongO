@@ -1,28 +1,35 @@
 package gongo.gongo.entity;
 
-import java.util.HashSet;
-import java.util.Set;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-
-@AllArgsConstructor
-@Getter
-@Setter
+import lombok.ToString;
 
 @Entity
-public class WishList extends CommonEntity{
-    
+@Getter
+@Setter
+@ToString
+public class Wishlist extends CommonEntity {
+
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @OneToMany(mappedBy = "wishList",cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<ListProduct> wishList = new HashSet<>();
-    
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_id")
+    private Member member;
+
+    public static Wishlist createCart(Member member) {
+        Wishlist wl = new Wishlist();
+        wl.setMember(member);
+        return wl;
+    }
 }
+
