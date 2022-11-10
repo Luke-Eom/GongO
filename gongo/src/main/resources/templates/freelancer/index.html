@@ -25,7 +25,7 @@
                                 </li>
                                 <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#recommend">추천</a>
                                 </li>
-                                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#wishlist">위시리스트</a>
+                                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#wishlist" onclick="wl('member.id<로그인한 유저의 정보>')">위시리스트</a>
                                 </li>
                             </ul>
                     </div>
@@ -58,55 +58,44 @@
                 <div class="row justify-content-center">
                     <div class="tab">
                         <button class="tablinks" onclick="openCatTab(event, 'all'); allProduct();" id="defaultOpen">전체</button> 
-                        <button class="tablinks" onclick="openCatTab(event, 'cpu')" id="defaultOpen">CPU</button> 
-                        <button class="tablinks" onclick="openCatTab(event, 'gpu');" id="defaultOpen">그래픽카드</button> 
-                        <button class="tablinks" onclick="openCatTab(event, 'mainBoard')" id="defaultOpen">메인보드</button> 
-                        <button class="tablinks" onclick="openCatTab(event, 'memoryCard')" id="defaultOpen">메모리카드</button> 
-                        <button class="tablinks" onclick="openCatTab(event, 'SSD')" id="defaultOpen">SSD</button> 
-                        <button class="tablinks" onclick="openCatTab(event, 'HDD')" id="defaultOpen">HDD</button> 
-                        <button class="tablinks" onclick="openCatTab(event, 'monitor')" id="defaultOpen">모니터</button> 
-                        <button class="tablinks" onclick="openCatTab(event, 'cooler')" id="defaultOpen">쿨러</button> 
-                        <button class="tablinks" onclick="openCatTab(event, 'power')" id="defaultOpen">파워</button> 
-                        <button class="tablinks" onclick="openCatTab(event, 'case')" id="defaultOpen">케이스</button> 
-                        <button class="tablinks" onclick="openCatTab(event, '완제품'); list('완제품')" id="defaultOpen">완제품</button> 
+                        <button class="tablinks" onclick="openCatTab(event, 'PC'); list('PC')" id="defaultOpen">PC</button> 
+                        <button class="tablinks" onclick="openCatTab(event, 'Case'); list('Case')" id="defaultOpen">Case</button> 
+                        <button class="tablinks" onclick="openCatTab(event, 'Cooler'); list('Cooler')" id="defaultOpen">Cooler</button> 
+                        <button class="tablinks" onclick="openCatTab(event, 'CPU'); list('CPU')" id="defaultOpen">CPU</button> 
+                        <button class="tablinks" onclick="openCatTab(event, 'GPU'); list('GPU')" id="defaultOpen">GPU</button> 
+                        <button class="tablinks" onclick="openCatTab(event, 'HDD'); list('HDD')" id="defaultOpen">HDD</button> 
+                        <button class="tablinks" onclick="openCatTab(event, 'MainBoard'); list('MainBoard')" id="defaultOpen">MainBoard</button> 
+                        <button class="tablinks" onclick="openCatTab(event, 'Monitor'); list('Monitor')" id="defaultOpen">Monitor</button> 
+                        <button class="tablinks" onclick="openCatTab(event, 'Power'); list('Power')" id="defaultOpen">Power</button> 
+                        <button class="tablinks" onclick="openCatTab(event, 'RAM'); list('RAM')" id="defaultOpen">RAM</button> 
+                        <button class="tablinks" onclick="openCatTab(event, 'SSD'); list('SSD')" id="defaultOpen">SSD</button> 
                     </div>
                     
                     <div id="all" class="tabcontent">
-                        <!-- 테이블 -->하위
                     </div>
-                    <div id="cpu" class="tabcontent">
-                        <!-- 테이블 -->호용
+                    <div id="PC" class="tabcontent">
                     </div>
-                    <div id="gpu" class="tabcontent">
-                        <!-- 테이블 -->화이팅
+                    <div id="Case" class="tabcontent">
                     </div>
-                    <div id="mainBoard" class="tabcontent">
-                        <!-- 테이블 -->아름샘님
+                    <div id="Cooler" class="tabcontent">
                     </div>
-                    <div id="memoryCard" class="tabcontent">
-                        <!-- 테이블 -->두통
+                    <div id="CPU" class="tabcontent">
                     </div>
-                    <div id="SSD" class="tabcontent">
-                        <!-- 테이블 -->케어부탁
+                    <div id="GPU" class="tabcontent">
                     </div>
                     <div id="HDD" class="tabcontent">
-                            <!-- 테이블 -->정민님
                     </div>
-                    <div id="monitor" class="tabcontent">
-                            <!-- 테이블 -->맨날 놀고있음
+                    <div id="MainBoard" class="tabcontent">
                     </div>
-                    <div id="cooler" class="tabcontent">
-                            <!-- 테이블 -->9
+                    <div id="Monitor" class="tabcontent">
                     </div>
-                    <div id="power" class="tabcontent">
-                            <!-- 테이블 -->10
+                    <div id="Power" class="tabcontent">
                     </div>
-                    <div id="case" class="tabcontent">
-                            <!-- 테이블 -->11
+                    <div id="RAM" class="tabcontent">
                     </div>
-                    <div id="완제품" class="tabcontent">
-                            <!-- 테이블 -->
+                    <div id="SSD" class="tabcontent">
                     </div>
+
             </div>
     </section>
         <section class="page-section bg-primary text-white mb-0" id="recommend">
@@ -139,16 +128,12 @@
                 <div class="text-center">
                     <h2 class="page-section-heading text-secondary d-inline-block mb-0">내 마음속에 저장</h2>
                 </div>
-                <!-- Icon Divider-->
-                <div class="divider-custom">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                    <div class="divider-custom-line"></div>
-                </div>
+
                 <!-- Contact Section Content-->
                 <div class="row justify-content-center">
                     <div class="col-lg-4">
-                        <div class="d-flex flex-column align-items-center">
+                        <div 위시리스트 불러오는곳 class = "">
+                        <!-- <div class="d-flex flex-column align-items-center">
                             <div class="icon-contact mb-3"><i class="fas fa-mobile-alt"></i></div>
                             <div class="text-muted">Phone</div>
                             <div class="lead font-weight-bold">(555) 555-5555</div>
@@ -159,7 +144,7 @@
                             <div class="icon-contact mb-3"><i class="far fa-envelope"></i></div>
                             <div class="text-muted">Email</div><a class="lead font-weight-bold" href="mailto:name@example.com">name@example.com</a>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </section>

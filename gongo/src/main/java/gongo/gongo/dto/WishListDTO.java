@@ -4,9 +4,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class WishListDTO {
-    private int id;
+    private Long id;
     
-    private UserDTO name;
+    private MemberDTO name;
     
     private Set<ListProductDTO> wishList = new HashSet<>();
 

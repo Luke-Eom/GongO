@@ -35,7 +35,6 @@ public class Product extends CommonEntity{
     private String price;
 
     private String imageUrl;
-    
-    private String link;
+
 
 }

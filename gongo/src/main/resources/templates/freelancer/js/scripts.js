@@ -106,31 +106,7 @@ function removeWishlist() {
 
 }
 
-function list(cat) {
-  const xhttp = new XMLHttpRequest();
-			xhttp.onload = function() {
-				
-				let data = this.responseText;
-				data = JSON.parse(data);
-				
-				let tableElement =`
-				<table border="1">
-				<tr><th>이미지</th><th>제품명</th><th>가격</th></tr>`;
-				
-				for (let i in data){
-					tableElement = tableElement + `<tr>
-				 		<td>${data[i].imageUrl}</a></td>
-				 		<td>${data[i].name}</td>
-				 		<td>${data[i].price}</td>
-				    </tr>`;
-				}
-				tableElement = tableElement + `</table>`;
-				document.getElementById(cat).innerHTML = tableElement;
-			};
-			xhttp.open( "GET", "search/categoryAll?cat=" + cat);
-			xhttp.send();
 
-}
 
 async function post(host, path, body, headers = {}) {
   const url = `https://${host}/${path}`;
@@ -163,32 +139,71 @@ function fetchCat(cat) {
 }
 
 //fetchAuthorName(1).then((name) => console.log("name:", name));
-
+{/* <img src=` + `${data[i].imageUrl}` + `" class="card-img-top" height="200"> */}
 function allProduct(){
   const xhttp = new XMLHttpRequest();
   xhttp.onload = function() {
     let data = this.responseText;
     data = JSON.parse(data);
+    console.log(data);
     
     let tableElement =`
-      <table border="1">
-      <tr>   
-        <th>이미지</th>
-        <th>이름</th>
-        <th>가격 id</th>
-      </tr>`;
+    <div class="row">
+    
+    
+    `;
     
     for (let i in data){
-      tableElement = tableElement + `<tr>
-         <td>${data[i].imageUrl}</td>
-         <td>${data[i].name}</td>
-         <td>${data[i].price}</td>
-        </tr>`;
-    }
+      tableElement = tableElement + `
+      <div class="col-lg-3 col-md-4 ">
+       <div class="card" style="width: 7rem height: 10rem">
+            <a class="text-dark">
+            
+            <img src="${data[i].imageUrl}" class="card-img-top" height="50">
+            <div class="card-body">
+            <span class="card-title" >${data[i].name}</span>
+            <h5 class="card-title text-danger">${data[i].price}</h5>
+            <p class="card-text" style="font-size:11px;">상세보기</p>
+            
+            </div> </a></div></div>`;
+          }
+          tableElement = tableElement + `</div>`;
     
-    tableElement = tableElement + `</table>`;
     document.getElementById("all").innerHTML = tableElement;
   };
-  xhttp.open( "GET", "search/productAll");
+  xhttp.open( "GET", "search/all/0/10");
   xhttp.send();
+}
+
+
+function list(cat) {
+  const xhttp = new XMLHttpRequest();
+			xhttp.onload = function() {
+				
+				let data = this.responseText;
+				data = JSON.parse(data);
+				
+				let tableElement =`
+				<table border="1">
+				<tr><th>이미지</th><th>제품명</th><th>가격</th><th>제조회사</th></tr>`;
+				
+				for (let i in data){
+					tableElement = tableElement + `<tr>
+				 		<td>${data[i].imageUrl}</td>
+				 		<td>${data[i].name}</td>
+				 		<td>${data[i].price}</td>
+				 		<td>${data[i].brand}</td>
+				    </tr>`;
+				}
+				tableElement = tableElement + `</table>`;
+				document.getElementById(cat).innerHTML = tableElement;
+			};
+			xhttp.open( "GET", "search/categoryAll/0/10?cat=" + cat);
+			xhttp.send();
+
+}
+
+function wl(memberInfo) {
+  
+
 }

@@ -21,15 +21,11 @@ public class ProductDTO {
     private String price;
 
     private String imageUrl;
-
-    private String link;
-
     
-    public ProductDTO(String name, String price, String imageUrl, String link) {
+    public ProductDTO(String name, String price, String imageUrl) {
         this.name = name;
         this.price = price;
         this.imageUrl = imageUrl;
-        this.link = link;
     }
 
     @Override
@@ -43,8 +39,6 @@ public class ProductDTO {
 		builder.append(price);
         builder.append(" 이미지 : ");
 		builder.append(imageUrl);
-        builder.append(" 링크 : ");
-		builder.append(link);
         
         return builder.toString();
     }

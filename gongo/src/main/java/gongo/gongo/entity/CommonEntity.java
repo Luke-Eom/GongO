@@ -1,33 +1,28 @@
 package gongo.gongo.entity;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
+import javax.persistence.EntityListeners;
 import javax.persistence.MappedSuperclass;
-import javax.persistence.PrePersist;
-import javax.persistence.PreUpdate;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@EntityListeners(value = {AuditingEntityListener.class})
 @MappedSuperclass
-public class CommonEntity {
-
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "CREATED_AT", updatable = false)
-    private Date createdDate;
-     
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "UPDATED_AT")
-    private Date updatedDate;
-
-    @PrePersist
-    protected void onCreate() {
-        updatedDate = createdDate = new Date();
-    }
-
-    @PreUpdate
-    protected void  onUpdate() {
-        updatedDate = new Date();
-    }
+@Getter
+@Setter
+public abstract class CommonEntity {
     
+    @CreatedDate
+    @Column(updatable = false)
+    private LocalDateTime regTime;
+    
+    @LastModifiedDate
+    private LocalDateTime updateTime;
 }

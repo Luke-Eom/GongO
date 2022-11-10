@@ -1,12 +1,21 @@
 package gongo.gongo.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Builder
 public class ListProductDTO {
 
-    private int id;
+    private Long id;
     
-    private WishListDTO wishList;
+    private Long wishlistId;
 
-    private ProductDTO product;
+    private Long productId;
 
     @Override
     public String toString() {
@@ -14,9 +23,9 @@ public class ListProductDTO {
         builder.append(" id : ");
 		builder.append(id);
         builder.append(" wishList: ");
-		builder.append(wishList);
+		builder.append(wishlistId);
         builder.append(" product : ");
-		builder.append(product);
+		builder.append(productId);
         
         return builder.toString();
     }

@@ -17,11 +17,13 @@ public class ProductInfoDTO {
     
     private String name;
     
-    private CategoryDTO category;
+    private String category;
         
     private String brand;
 
-    private String detail;
+    private String link;
+
+    private String imageUrl;
 
     @Override
     public String toString() {
@@ -32,8 +34,10 @@ public class ProductInfoDTO {
 		builder.append(category);
         builder.append(" 브랜드 : ");
 		builder.append(brand);
-        builder.append(" 상세 정보 : ");
-		builder.append(detail);
+        builder.append(" 링크 : ");
+		builder.append(link);
+        builder.append(" 이미지 : ");
+		builder.append(imageUrl);
         
         return builder.toString();
     }
